@@ -11,3 +11,4 @@ commonLabels:
 resources:
 - deployment-nginx.yaml
 - service-nginx.yaml
+- ingress-nginx.yaml
