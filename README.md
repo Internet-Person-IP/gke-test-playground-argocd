@@ -7,10 +7,12 @@ This is a playground for me to test out GKE and play around with kuberentes.
 - Service for Nginx
 - Kustomize for Nginx
 - Ingress Controller Support
-# Expansions
 - Expand Ingress Controller
 - HPA support
+
+# Expansion
 - ArgoCD Support
+- HTTPS support
 - Frontend
 - Backend
 - Small SQL server

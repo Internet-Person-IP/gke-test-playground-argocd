@@ -9,6 +9,7 @@ commonLabels:
   kustomize: hehethisworks
 
 resources:
-- deployment-nginx.yaml
-- service-nginx.yaml
-- ingress-nginx.yaml
+  - deployment-nginx.yaml
+  - service-nginx.yaml
+  - ingress-nginx.yaml
+  - hpa-nginx.yaml
