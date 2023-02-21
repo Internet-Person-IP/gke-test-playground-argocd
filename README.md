@@ -13,6 +13,7 @@ This is a playground for me to test out GKE and play around with kuberentes.
 - kubectl apply -k namespaces/
 - k apply -k crossplane/
 - Install ArgoCD
+- kubectl get providers.pkg.crossplane.io upbound-provider-gcp -o jsonpath="{.status.currentRevision}" -n crossplane
 
 # Done
 - Deployment for Nginx
@@ -40,12 +41,17 @@ This is a playground for me to test out GKE and play around with kuberentes.
 
 
 
-# Next Step 
+# Next Step
+- External Secrets fuckaround and find out
+- Scripts
+- base/overlays template
+- GCloud Compands pipeline???
+- Clean Up Crew and Fix ArgoCD 
 <!---# - Use the Cluster SA Account to in the ClusterSecretStore NOT NEEDED
 # - Create Service Role for Secret Management NOT NEEDED
-# - Pull Secret into the actual crossplane namespace NOT NEEDED -->
-- Read up on GKE Workload Identity
-- Crossplane to create a SQL Server
+# - Pull Secret into the actual crossplane namespace NOT NEEDED
+ - Read up on GKE Workload Identity
+- Crossplane to create a SQL Server -->
 <!--- # - External Secrets -->
 - Frontend // React with Secrets
 	- Create React FE - Application is a Colorbackground App? 
@@ -53,6 +59,5 @@ This is a playground for me to test out GKE and play around with kuberentes.
 
 
 
-gcloud iam service-accounts add-iam-policy-binding crossplane-sa-test@test-projects-376916.iam.gserviceaccount.com --role roles/iam.workloadIdentityUser --member "serviceAccount:test-projects-376916.svc.id.goog[crossplane/crossplane]"
-
+gcloud iam service-accounts add-iam-policy-binding crossplane-sa-test@test-projects-376916.iam.gserviceaccount.com --role roles/iam.workloadIdentityUser --member "serviceAccount:test-projects-376916.svc.id.goog[crossplane/upbound-provider-gcp-5145d928dcf9]"
 kubectl run -i --tty test3 --image gcr.io/cloud-builders/gsutil ls gs://workload-identity-test --serviceaccount=crossplane -n crossplane

@@ -30,8 +30,6 @@ metadata:
     app.kubernetes.io/name: crossplane
     app.kubernetes.io/instance: crossplane
     app.kubernetes.io/version: "1.11.0"
-  annotations: 
-    iam.gke.io/gcp-service-account: crossplane-sa-test@test-projects-376916.iam.gserviceaccount.com
 ---
 # Source: crossplane/templates/clusterrole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -775,6 +773,8 @@ spec:
         emptyDir:
           medium: 
           sizeLimit: 5Mi
+      nodeSelector: 
+        iam.gke.io/gke-metadata-server-enabled: "true"
 ---
 # Source: crossplane/templates/rbac-manager-deployment.yaml
 apiVersion: apps/v1
@@ -880,3 +880,5 @@ spec:
                 resource: limits.memory
           - name: LEADER_ELECTION
             value: "true"
+      nodeSelector: 
+        iam.gke.io/gke-metadata-server-enabled: "true"

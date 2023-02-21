@@ -1,7 +1,3 @@
-serviceAccount:
-  customAnnotations:
-    iam.gke.io/gcp-service-account: crossplane-sa-test@test-projects-376916.iam.gserviceaccount.com
-
 nodeSelector:
   iam.gke.io/gke-metadata-server-enabled: "true"
 
